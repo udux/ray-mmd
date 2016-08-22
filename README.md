@@ -7,6 +7,7 @@ Ray-MMD
 [![link text](Screenshot/sphere_small.jpg)](Screenshot/sphere.jpg)
 
 #### 更新内容 :
+##### 2016-8-22 ver 1.0.1 版本
 * 增加材质单独存放其它目录(必须和 material_common.fxsub) 一起打包
 * 增加控制SSAO产生阴影半径的大小
 * 增加了相机色散，以及色散半径的效果 (表情: Dispersion && Dispersion Radius)
