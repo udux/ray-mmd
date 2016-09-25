@@ -55,18 +55,19 @@ void BloomBlurVS(
 
 float4 BloomBlurPS(in float2 coord : TEXCOORD0, uniform sampler2D source, uniform float2 offset, uniform int n) : SV_Target
 {
-    float weight = 0.0;
-    float4 color = 0.0f;
+    const float weights[15] = { 153, 816, 3060, 8568, 18564, 31824, 43758, 48620, 43758, 31824, 18564, 8568, 3060, 816, 153 };
+    const float weightSum = 262106.0;
     
-    for (int i = 0; i < n; ++i)
+    float4 color = 0;
+    float2 coords = coord - offset * 7.0;
+    
+    for (int i = 0; i < 15; ++i)
     {
-        float w = 0.39894 * exp(-0.5 * i * i / (n * n)) / n;
-        color += tex2D(source, coord + offset * i) * w;
-        color += tex2D(source, coord - offset * i) * w;
-        weight += 2.0 * w;
+        color += tex2D(source, coords) * (weights[i] / weightSum);
+        coords += offset;
     }
 
-    return color / weight;
+    return color;
 }
 
 float3 ColorBalance(float3 color, float4 balance)
@@ -205,7 +206,6 @@ float4 FimicToneMappingPS(in float2 coord: TEXCOORD0, in float4 screenPosition :
 
 #if HDR_ENABLE   
 #if HDR_BLOOM_QUALITY > 0
-    float bloomIntensity = lerp(1, 10, mBloomIntensity);
     float bloomFactors[] = {1.0, 0.8, 0.6, 0.4, 0.2};
     
     float3 bloom0 = tex2D(BloomSampX1, coord).rgb;
@@ -221,6 +221,7 @@ float4 FimicToneMappingPS(in float2 coord: TEXCOORD0, in float4 screenPosition :
     bloom += bloom3;
     bloom += bloom4;
     
+    float bloomIntensity = lerp(1, 20, mBloomIntensity);
     color += bloom * bloomIntensity;
 #endif
 

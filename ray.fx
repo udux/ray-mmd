@@ -461,7 +461,7 @@ technique DeferredLighting<
     pass BloomBlurX2 < string Script= "Draw=Buffer;"; > {
         AlphaBlendEnable = false; AlphaTestEnable = false;
         ZEnable = false; ZWriteEnable = false;
-        VertexShader = compile vs_3_0 BloomBlurVS(2);
+        VertexShader = compile vs_3_0 BloomBlurVS(1);
         PixelShader  = compile ps_3_0 BloomBlurPS(BloomSampX1, float2(ViewportOffset2.x, 0.0), 5);
     }
     pass BloomBlurY2 < string Script= "Draw=Buffer;"; > {
@@ -473,8 +473,8 @@ technique DeferredLighting<
     pass BloomBlurX3 < string Script= "Draw=Buffer;"; > {
         AlphaBlendEnable = false; AlphaTestEnable = false;
         ZEnable = false; ZWriteEnable = false;
-        VertexShader = compile vs_3_0 BloomBlurVS(4);
-        PixelShader  = compile ps_3_0 BloomBlurPS(BloomSampX2, float2(ViewportOffset2.x * 4, 0.0), 7);
+        VertexShader = compile vs_3_0 BloomBlurVS(2);
+        PixelShader  = compile ps_3_0 BloomBlurPS(BloomSampX2, float2(ViewportOffset2.x * 2, 0.0), 7);
     }
     pass BloomBlurY3 < string Script= "Draw=Buffer;"; > {
         AlphaBlendEnable = false; AlphaTestEnable = false;
@@ -485,8 +485,8 @@ technique DeferredLighting<
     pass BloomBlurX4 < string Script= "Draw=Buffer;"; > {
         AlphaBlendEnable = false; AlphaTestEnable = false;
         ZEnable = false; ZWriteEnable = false;
-        VertexShader = compile vs_3_0 BloomBlurVS(8);
-        PixelShader  = compile ps_3_0 BloomBlurPS(BloomSampX3, float2(ViewportOffset2.x * 8, 0.0), 9);
+        VertexShader = compile vs_3_0 BloomBlurVS(4);
+        PixelShader  = compile ps_3_0 BloomBlurPS(BloomSampX3, float2(ViewportOffset2.x * 4, 0.0), 9);
     }
     pass BloomBlurY4 < string Script= "Draw=Buffer;"; > {
         AlphaBlendEnable = false; AlphaTestEnable = false;
@@ -497,8 +497,8 @@ technique DeferredLighting<
     pass BloomBlurX5 < string Script= "Draw=Buffer;"; > {
         AlphaBlendEnable = false; AlphaTestEnable = false;
         ZEnable = false; ZWriteEnable = false;
-        VertexShader = compile vs_3_0 BloomBlurVS(16);
-        PixelShader  = compile ps_3_0 BloomBlurPS(BloomSampX4, float2(ViewportOffset2.x * 16, 0.0), 11);
+        VertexShader = compile vs_3_0 BloomBlurVS(8);
+        PixelShader  = compile ps_3_0 BloomBlurPS(BloomSampX4, float2(ViewportOffset2.x * 8, 0.0), 11);
     }
     pass BloomBlurY5 < string Script= "Draw=Buffer;"; > {
         AlphaBlendEnable = false; AlphaTestEnable = false;
