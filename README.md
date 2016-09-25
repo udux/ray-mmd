@@ -87,7 +87,7 @@ Ray-MMD
     * 将NORMAL_MAP_ENABLE设置1，以及指定NORMAL_MAP_FILE的文件路径  
     [![link text](https://github.com/ray-cast/images/raw/master/normal_0.jpg)](https://github.com/ray-cast/images/raw/master/normal_0.jpg)  
     [![link text](https://github.com/ray-cast/images/raw/master/normal_1.png)](https://github.com/ray-cast/images/raw/master/normal_1.png)
-    * 法线的强度可以修改normalMapSubScale数值，修改成5以后的效果
+    * 法线的强度可以修改normalMapSubScale数值，修改成5以后的效果  
     [![link text](https://github.com/ray-cast/images/raw/master/normal_2.png)](https://github.com/ray-cast/images/raw/master/normal_2.png)
     * 修改贴图的密度，可以使用albedo/normal/MapSubLoopNum等，修改成2的效果
     [![link text](https://github.com/ray-cast/images/raw/master/normal_3.png)](https://github.com/ray-cast/images/raw/master/normal_3.png)
